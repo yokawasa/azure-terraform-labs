@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# custom rules
+/t/*

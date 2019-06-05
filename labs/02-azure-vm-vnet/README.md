@@ -476,6 +476,15 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 ```
 
 
+## VMにSSHでログイン 
+
+上記手順で作成されたパブリックIPアドレスを取得して、その情報を元に下記のようにVMにSSHログインしてください。
+
+```bash
+ssh -i ~/.ssh/id_rsa -l azureuser <IP Address>
+```
+
+
 ## 作成したリソースの削除
 
 最後に、`terraform destroy`で作成したリソースを削除してください

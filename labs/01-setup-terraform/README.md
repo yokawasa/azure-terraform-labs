@@ -1,4 +1,4 @@
-# 1. Setup Terraform
+# Setup Terraform
 
 
 - [Setup Terraform](#setup-terraform)
@@ -7,7 +7,7 @@
     - [Terraformの環境変数の設定](#terraformの環境変数の設定)
     - [サンプルスクリプトの実行](#サンプルスクリプトの実行)
 
-## 1.1. Terraform インストール (Optional)
+## Terraform インストール (Optional)
 
 Azure Cloud ShellにはデフォルトでTerraformがインストールされているのでTerraformをインストールする必要はありません。
 
@@ -56,7 +56,7 @@ All other commands:
     state              Advanced state management
 ```
 
-## 1.2. Service Principalの作成
+## Service Principalの作成
 
 TerraformでAzureリソースをAzureにプロビジョンするためには、Azure AD Service Principal (以下 Service Principal)を作成する必要があります。Servide PrincipalによってTerraformスクリプトでご自分のサブスクリプション下にAzureリソースをプロビジョンすることができるようになります（権限が付与されます）。
 
@@ -96,7 +96,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRI
 
 上記出力結果の中で、`appId`と`password`はこの後の作業で必要になります。
 
-## 1.3. Terraformの環境変数の設定
+## Terraformの環境変数の設定
 
 次のような環境情報設定用ファイル(`setenv.sh`)を作成して、`ARM_SUBSCRIPTION_ID`、`ARM_CLIENT_ID`、`ARM_CLIENT_SECRET`、`ARM_TENANT_ID`にそれぞれサブスクリプションID、Service Principal ID (上記のappId)、Service Principalパスワード (上記のpassword)、テナントIDを指定ください。
 
@@ -118,7 +118,7 @@ export ARM_ENVIRONMENT="public"
 source ./setenv.sh
 ```
 
-## 1.4. サンプルスクリプトの実行
+## サンプルスクリプトの実行
 
 テスト実行ディレクトリを作成してそのディレクトリに移動してください
 ```sh

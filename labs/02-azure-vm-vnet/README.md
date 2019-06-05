@@ -88,7 +88,7 @@ terraform apply
 次のTerraformスクリプトでは`tflab_02`という名前のリソースグループを`japaneast`リージョンに作成します。
 
 > resourcegroup.tf
-```json
+```
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "tflab_02"
     location = "japaneast"
@@ -104,7 +104,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 次のTerraformスクリプトではVirtual Network（`myVnet`）をアドレススペース`10.0.0.0/16`で作成して、その中にサブネットを2つ(`mySubnetFrontend`と`mySubnetBackend`)を作成します。
 
 > vnet.tf
-```json
+```
 # Create virtual network
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
@@ -137,7 +137,7 @@ resource "azurerm_subnet" "myterraformsubnetbackend" {
 次のTerraformスクリプトではパブリックIPアドレス（`myPublicIP`）をアロケーションモード`Dynamic`で作成します。
 
 > publicip.tf
-```json
+```
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
@@ -156,7 +156,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 次のTerraformスクリプトでは`SSH`アクセス(`TCP/22`)用のNetwork Security Groupを作成します。
 
 > nsg.tf
-```json
+```
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
@@ -187,7 +187,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 次のTerraformスクリプトではあたなのVMをVirtual Network、パブリックIPやNetwork Security Groupと繋げるための仮想ネットワークインターフェースカード（Virtual NIC）を`myNIC`という名前で作成します。
 
 > nic.tf
-```json
+```
 # Create network interface
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
@@ -214,7 +214,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 次のTerraformスクリプトではVMのブート診断ログを保存するためのAzureストレージアカウントを作成します。ストレージアカウント名は全体でユニークである必要があるためランダム文字列生成用のプラグインを使用しています。
 
 >storage.tf
-```json
+```
 # Generate random text for a unique storage account name
 resource "random_id" "randomId" {
     keepers = {
@@ -253,7 +253,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZFFzffd79MoRZtlFWMBXKnREetHFE4pqWR5pOTdS9
 Terraformスクリプト実行前に`key_data = "ssh-rsa ************** YOUR SSH KEY ***************"`の値部分に先ほど作成したSSH鍵（公開鍵）の内容を挿入してください。
 
 > vm.tf
-```json
+```
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -315,7 +315,7 @@ terraform apply
 ```
 
 > main.tf
-```json
+```
 # Create a resource group if it doesn’t exist
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "tflab_02"

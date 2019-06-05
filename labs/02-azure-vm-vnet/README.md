@@ -13,6 +13,7 @@
         - [ストレージアカウントの作成](#ストレージアカウントの作成)
         - [Virtual Machineの作成](#virtual-machineの作成)
     - [方法2: リソースをまとめて作成する](#方法2-リソースをまとめて作成する)
+    - [VMにSSHでログイン](#vmにsshでログイン)
     - [作成したリソースの削除](#作成したリソースの削除)
 
 ![](../../assets/vm-vnet.png)
@@ -488,8 +489,8 @@ ssh -i ~/.ssh/id_rsa -l azureuser <IP Address>
 ## 作成したリソースの削除
 
 最後に、`terraform destroy`で作成したリソースを削除してください
-```
-tf destroy
+```bash
+terraform destroy
 ```
 
 ---
